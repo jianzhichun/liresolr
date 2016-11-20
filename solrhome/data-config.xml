@@ -1,0 +1,15 @@
+<dataConfig>
+    <dataSource name ="bin" type="BinFileDataSource" />
+    <document>
+        <entity name="f"
+                processor="FileListEntityProcessor"
+                transformer="TemplateTransformer"
+                baseDir="D:\chun\Desktop\bj400_90M"
+                fileName=".*jpg"
+                recursive="true"
+                rootEntity="false" dataSource="null" onError="skip">
+            <entity name="lire-test" processor="net.semanticmetadata.lire.solr.LireEntityProcessor" url="${f.fileAbsolutePath}" dataSource="bin"  onError="skip">
+            </entity>
+        </entity>
+    </document>
+</dataConfig>
