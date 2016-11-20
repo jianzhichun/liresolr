@@ -1,0 +1,90 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	 <modelVersion>4.0.0</modelVersion>
+	 <groupId>lire-solr</groupId>
+	 <artifactId>liresolr</artifactId>
+	 <packaging>war</packaging>
+	 <version>0.0.1-SNAPSHOT</version>
+	 <properties>
+	 	<maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java-version>1.8</java-version>
+		<javax.servlet-api>3.1.0</javax.servlet-api>
+		<solr-version>6.2.1</solr-version>
+	 </properties>
+	 <dependencies>
+	 	<!-- 
+	 	<dependency>
+	 		<groupId>net.semanticmetadata</groupId>
+			<artifactId>lire</artifactId>
+			<version>0.9.4-SNAPSHOT</version>
+	 	</dependency>
+	 	 -->
+	   	<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${javax.servlet-api}</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.jhlabs/filters -->
+		<dependency>
+		    <groupId>com.jhlabs</groupId>
+		    <artifactId>filters</artifactId>
+		    <version>2.0.235-1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-log4j12</artifactId>
+		    <version>1.7.7</version>
+		    <scope>provided</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.solr/solr-core -->
+		<dependency>
+		    <groupId>org.apache.solr</groupId>
+		    <artifactId>solr-core</artifactId>
+		    <version>5.5.3</version>
+		    <scope>provided</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.solr/solr-dataimporthandler -->
+		<dependency>
+		    <groupId>org.apache.solr</groupId>
+		    <artifactId>solr-dataimporthandler</artifactId>
+		    <version>5.5.3</version>
+		    <scope>provided</scope>
+		</dependency>
+	 </dependencies>
+	 
+	 <build>
+	   <finalName>liresolr</finalName>
+	   <plugins>
+	   		<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>${java-version}</source>
+					<target>${java-version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+	   </plugins>
+	   <resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+			</testResource>
+		</testResources>
+	 </build>
+</project>
